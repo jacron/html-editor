@@ -1,0 +1,21 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: lightblue;
+}
+
+a {
+  color: #00B7FF;
+}
+label {
+  display: inline-block;
+  width: 60px;
+  vertical-align: top;
+}
+textarea {
+  width: 90%;
+  height: 100px;
+}
+input {
+  width: 90%;
+}

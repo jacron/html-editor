@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>clipboard html editor</title>
+    <link rel='shortcut icon' href="/images/icon.png">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<img src="/images/icon.png" width="100" alt="">
+    <p>
+        Create YouTube links for OneNote
+    </p>
+    <button onclick="readClipboard()">read clipboard</button><br>
+    <p>
+        <label for="clipboard-text">text</label>
+        <textarea id="clipboard-text"></textarea>
+    </p>
+    <p>
+        <label for="clipboard-time">tijd</label>
+        <input type="text" id="clipboard-time">
+    </p>
+    <button onclick="writeHtml()">write html</button>
+    <button onclick="adjustTimeTable()">adjust time table</button>
+    <p>
+        <label for="clipboard-html">html</label>
+        <textarea id="clipboard-html"></textarea>
+    </p>
+    <p>
+        <a href="" id="clipboard-url">try</a>
+    </p>
+    <button onclick="copyHtml()">copy html</button>
+    <script src="/javascripts/index.js"></script>
+</body>
+</html>

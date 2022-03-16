@@ -1,0 +1,20 @@
+{
+  "name": "html-editor",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "pcopy": "cp plist/nl.jcroonen.html-editor.plist ~/Library/LaunchAgents",
+    "pstart": "launchctl start nl.jcroonen.html-editor",
+    "pstop": "launchctl stop nl.jcroonen.html-editor",
+    "pload": "launchctl load -w ~/Library/LaunchAgents/nl.jcroonen.html-editor.plist",
+    "punload": "launchctl unload ~/Library/LaunchAgents/nl.jcroonen.html-editor.plist",
+    "plist": "launchctl list | grep jcroonen"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1"
+  }
+}
