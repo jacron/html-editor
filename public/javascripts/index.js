@@ -4,7 +4,8 @@ const htmltext = "text/html";
 const buttonReadClipboard = document.getElementById('buttonReadClipboard');
 const buttonCopyHtml = document.getElementById('buttonCopyHtml');
 const buttonReplace = document.getElementById('buttonReplace');
-const buttonCopy = document.getElementById('buttonCopy');
+const buttonCopyAll = document.getElementById('buttonCopyAll');
+const buttonCopyText = document.getElementById('buttonCopyText');
 const aTimetable = document.getElementById('aTimetable');
 
 const inputHtml = document.getElementById('inputHtml');
@@ -15,13 +16,15 @@ const inputTarget = document.getElementById('inputTarget');
 const msgHtmlCopied = document.getElementById('msgHtmlCopied');
 const msgAllCopied = document.getElementById('msgAllCopied');
 const msgReplaced = document.getElementById('msgReplaced');
+const msgTextCopied = document.getElementById('msgTextCopied');
 
 function bind() {
     [
         [buttonReadClipboard, readClipboard],
         [buttonCopyHtml, copyHtml],
-        [buttonCopy, copyAll],
+        [buttonCopyAll, copyAll],
         [buttonReplace, replace],
+        [buttonCopyText, copyText],
         [aTimetable, youtubeTimetable]
     ].forEach(binding => {
         const [element, listener] = binding;
@@ -30,9 +33,8 @@ function bind() {
 }
 
 function hideMsgs() {
-    msgHtmlCopied.style.visibility = 'hidden';
-    msgAllCopied.style.visibility = 'hidden';
-    msgReplaced.style.visibility = 'hidden';
+    [msgReplaced, msgHtmlCopied, msgTextCopied, msgAllCopied]
+        .forEach(msg => msg.style.visibility = 'hidden')
 }
 
 function youtubeTimetable() {
@@ -79,6 +81,20 @@ function copyHtml() {
         () => {
             hideMsgs();
             msgHtmlCopied.style.visibility = 'visible';
+        }
+    );
+}
+
+function copyText() {
+    if (inputText.value.length < 1) {
+        return;
+    }
+    const blob = new Blob([inputText.value], {type: plaintext});
+    const item = new ClipboardItem({[plaintext]: blob,});
+    navigator.clipboard.write([item]).then(
+        () => {
+            hideMsgs();
+            msgTextCopied.style.visibility = 'visible';
         }
     );
 }
